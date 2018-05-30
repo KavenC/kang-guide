@@ -7,7 +7,7 @@
           <div class="left">
             <i class="material-icons">home</i>
           </div>
-          <div class="center"
+          <div class="center">
             <v-ons-input
               placeholder="餐廳名稱"
               modifier="material"
@@ -19,12 +19,12 @@
             <i class="material-icons">local_dining</i>
           </div>
           <div class="center">
-            <i class="material-icons" 
+            <i class="material-icons"
                style="color: #ff8577"
-               v-for="f in rating.value" 
+               v-for="f in rating.value"
                :key="f"
                @click="setRating(f)">favorite</i>
-            <i class="material-icons" 
+            <i class="material-icons"
                style="color: #ff8577"
                v-for="f in (rating.max-rating.value)"
                :key="f+rating.value"
@@ -36,20 +36,20 @@
             <i class="material-icons">attachment</i>
           </div>
           <div class="center">
-            <tag 
+            <tag
                :item="{tag}"
                v-for="(tag, index) in selectedTags"
                :key="tag"
                @click.native="removeTag(index)"></tag>
-            <v-autocomplete 
-               :items="autoCompItems" 
-               :component-item='autoCompItemTemplate' 
+            <v-autocomplete
+               :items="autoCompItems"
+               :component-item='autoCompItemTemplate'
                :min-len="0"
                :auto-select-one-item="false"
                :input-attrs="{type: 'text', class: 'text-input text-input--material tag-search'}"
                :get-label="item => {return ''}"
                :wait="300"
-               placeholder="新增標籤"                
+               placeholder="新增標籤"
                @update-items="updateAutoCompItems"
                @item-selected="addTag"
                @item-clicked="addTag"></v-autocomplete>
@@ -79,7 +79,7 @@
           </div>
           <div class="center">
             <datepicker
-              v-model="date" 
+              v-model="date"
               input-class="text-input text-input--material"
               wrapper-class="datepicker-wrapper"
               :format="dateToString"
@@ -99,7 +99,6 @@
             <v-ons-button modifier="quiet" @click="publish">發布</v-ons-button>
           </div>
         </v-ons-list-item>
-        </v-ons-list>
       </v-ons-card>
       <loading-modal :visible="modalVisible" text="更新中"></loading-modal>
     </template>
